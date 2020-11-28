@@ -1,0 +1,16 @@
+<% classList.forEach(batch => { %>
+
+<a href="/<%= batch.id %>/<%= batch.slotId %>/attendance">
+  <h5 class="card-title">Branch-<%= batch.branch %> <%= batch.Shift %></h5>
+  <h5 class="card-title">Year-<%= batch.year %></h5>
+  <h6 class="card-subtitle mb-2 text-muted"><%= batch.subject %></h6>
+
+  <button class="card-link btn btn-outline-secondary color-btn btn-lg" data-toggle="modal" data-target="#exampleModal1">
+    <a href="/<%= batch.id %>/<%= batch.slotId %>/updateClass">UPDATE</a>
+  </button>
+
+  <button class="card-link btn btn-secondary color-btn btn-lg ">
+    <a href="/<%= batch.id %>/<%= batch.slotId %>/deleteClass" class="text-light">DELETE</a>
+  </button>
+
+  <% }); %>
