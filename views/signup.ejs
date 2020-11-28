@@ -1,0 +1,21 @@
+<form action="\signup" method="post" class="form-horizontal">
+    <h2>Sign Up</h2>
+
+      <input type="text" name="name" id="" class="form-control" placeholder="Name" required="required">
+  
+      <input type="email" id="" class="form-control" name="username" placeholder="Email Address"
+        required="required">
+   
+      <input type="password" name="password" id="" class="form-control" placeholder="Password"
+        required="required">
+    
+      <input type="password" name="confirm" id="" class="form-control" placeholder="Confirm-Password"
+        required="required">
+   
+      <% if (req.session.signuperror!= undefined) { %>
+        <div style="color: red;"><%= req.session.signuperror %> </div>
+      <% } %>  
+    
+      <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+   
+</form>
