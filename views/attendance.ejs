@@ -1,0 +1,97 @@
+<%- include('./partials/tope.ejs') %>
+
+
+    <button class="btn btn-outline-dark mx-0 my-2 btn-create col-11 col-sm-5 col-md-4 col-lg-3 "><a
+        href="/<%= presentClassId %>/<%= presentBatchId %>/newStudent">
+        <h4><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add Student</h4>
+      </a></button>
+    <button class="btn btn-outline-dark mx-0 my-2 btn-create col-11 col-sm-5 col-md-4 col-lg-3"><a href="/home">
+        <h4><i class="fas fa-backward pr-1"></i> Go Back</h4>
+      </a></button>
+  
+
+
+ 
+        
+            <% if (studentList[0].branch=="CSE") { %>
+            <h5>
+              Branch: Computer Science <%= studentList[0].Shift %>, <%= studentList[0].year %>
+            </h5>
+            <% } %>
+            <% if (studentList[0].branch=="IT") { %>
+            <h5>
+              Branch: Information Technology <%= studentList[0].Shift %>, <%= studentList[0].year %>
+            </h5>
+            <% } %>
+            <% if (studentList[0].branch=="ECE") { %>
+            <h5>
+              Branch: Electronics And Communication <%= studentList[0].Shift %>, <%= studentList[0].year %>
+            </h5>
+            <% } %>
+            <% if (studentList[0].branch=="EEE") { %>
+            <h5>
+              Branch: Electrical And Electronics <%= studentList[0].Shift %>, <%= studentList[0].year %>
+            </h5>
+            <% } %>
+
+            <h5 class="" style="font-weight: 300;"><em> <%= TodayDate %></em> </h5>
+          
+        <h3 class="col-sm-3 col-2"><i class="fas fa-user mr-lg-5" style="font-size: 3rem;"></i></h3>
+        <div class="col-sm-9 col-10">
+          <h5><%= name %></h5>
+          <h5 style="font-weight: 300;"><%= username %></h5>
+       
+
+    
+  
+
+  <form action="/<%= presentClassId %>/<%= presentBatchId %>/attendance" method="POST">
+    
+
+      <% studentList.forEach(std => { %>
+      
+
+      
+                <div class="col-lg-2 col-md-1 col-12 mt-sm-0 mt-5"><%= sno+1 %>. </div>
+                <% sno+=1 %>
+                <div class="col-lg-3 col-md-10 col-12"><%= std.enrollNo %> </div>
+                <div class="col-lg-7 col-md-12 col-12"><%= std.name %> </div>
+             
+                  <select name="dd" class="custom-select" onchange=attendanceChangeHandler(event)>
+                    <option value=0>Mark Attendance</option>
+                    <option value=1>Present</option>
+                    <option value=2>Absent</option>
+                  </select>
+               
+            <button class="btn btn-dark text-light" data-toggle="tooltip" data-placement="bottom"
+              title="Delete Student"><a
+                href="/<%= presentClassId %>/<%= presentBatchId %>/<%= std.id %>/deleteStudent"><i
+                  class="fas fa-trash-alt"></i></a></button>
+         
+      <% }) %>
+
+      
+        <button type="submit" class="btn btn-outline-info color-btn mr-3 my-4 my-md-0">Save Attendance</button>
+        <button class="btn btn-dark text-light"><a href="/<%= presentClassId %>/<%= presentBatchId %>/record">View
+            Record</a></button>
+    
+
+  </form>
+
+
+
+
+
+  <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i
+      class="fas fa-chevron-up"></i></a>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+
+</html>
